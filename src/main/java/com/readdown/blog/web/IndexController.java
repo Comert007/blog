@@ -17,4 +17,26 @@ public class IndexController {
     public String blog(){
         return "blog";
     }
+
+    @GetMapping("/types")
+    public String types(){
+        return "types";
+    }
+
+    @GetMapping("/tags")
+    public String tags(){
+        return "tags";
+    }
+
+
+    @GetMapping("/archives")
+    public String archives(){
+        return "archives";
+    }
+
+    @GetMapping("/about")
+    public String about(){
+        return "about";
+    }
+
 }
