@@ -151,6 +151,15 @@ body{
     color: #333!important;
 }
 
+/*------------height-------*/
+.m-h-mini{
+    min-height: 300px !important;
+}
+
+.m-h-tiny{
+    min-height: 500px !important;
+}
+
 
 .m-mobile-show{
     display: none!important;
