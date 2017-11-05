@@ -58,41 +58,44 @@
             <div class="header">提示：</div>
             <p th:text="${message}">恭喜，操作成功！</p>
         </div>
+        <div id="table-container">
+            <table class="ui compact teal table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>名称</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
 
-        <table class="ui celled table">
-            <thead>
-            <tr>
-                <th></th>
-                <th>名称</th>
-                <th>操作</th>
-            </tr>
-            </thead>
+                <tbody>
+                <tr th:each="type,iterStat : ${page.content}">
+                    <td th:text="${iterStat.count}">1</td>
+                    <td th:text="${type.name}">刻意练习清单</td>
+                    <td>
+                        <a href="#" th:href="@{/admin/types/{id}/input(id=${type.id})}"
+                           class="ui mini teal basic button">编辑</a>
+                        <a href="#" th:href="@{/admin/types/{id}/delete(id=${type.id})}"
+                           class="ui mini red basic button">删除</a>
+                    </td>
+                </tr>
+                </tbody>
 
-            <tbody>
-            <tr th:each="type,iterStat : ${page.content}">
-                <td th:text="${iterStat.count}">1</td>
-                <td th:text="${type.name}">刻意练习清单</td>
-                <td>
-                    <a href="#" th:href="@{/admin/types/{id}/input(id=${type.id})}" class="ui mini teal basic button">编辑</a>
-                    <a href="#"th:href="@{/admin/types/{id}/delete(id=${type.id})}" class="ui mini red basic button">删除</a>
-                </td>
-            </tr>
-            </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="6">
+                        <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
+                            <a th:href="@{/admin/types/(page=${page.number}-1)}" class="item" th:unless="${page.first}">上一页</a>
+                            <a th:href="@{/admin/types/(page=${page.number}+1)}" class="item" th:unless="${page.last}">下一页</a>
+                        </div>
 
-            <tfoot>
-            <tr>
-                <th colspan="6" >
-                    <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
-                        <a th:href="@{/admin/types/(page=${page.number}-1)}" class="item" th:unless="${page.first}">上一页</a>
-                        <a  th:href="@{/admin/types/(page=${page.number}+1)}" class="item" th:unless="${page.last}">下一页</a>
-                    </div>
-
-                    <a href="#" th:href="@{/admin/types/input}" class="ui mini right floated teal basic button">新增</a>
-                </th>
-            </tr>
-            </tfoot>
-        </table>
-
+                        <a href="#" th:href="@{/admin/types/input}"
+                           class="ui mini right floated teal basic button">新增</a>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 </div>
 <br>
@@ -134,10 +137,10 @@
     </div>
 </footer>
 
-<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<!--/*/<th:block th:replace="admin/_fragments :: script">/*/-->
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
-<!--/*/</th:block>/*/--><!--/*/</th:block>/*/-->
+<!--/*/</th:block>/*/-->
 <script>
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide')
@@ -148,7 +151,7 @@
     });
 
     $('.message .close')
-        .on('click', function() {
+        .on('click', function () {
             $(this)
                 .closest('.message')
                 .transition('fade')
