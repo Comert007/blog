@@ -49,9 +49,11 @@
 
                 <div class="ui attached segment">
                     <p class="m-text-thin">
-                        feng，一个在程序的世界里面爬坑的小学生，一个终生的学习者，learn from everybody。
+                       一个在程序的世界里面爬坑的小学生，始终梦想着在代码的世界里遨游。
                     </p>
-                    <p>热爱编程，喜欢折腾，正在探索高效学习编程技术的方法...</p>
+                    <p>温暖一生的故事，寄托一生的梦想，<br>
+                        感动一生的情怀，执着一生的信念，<br>
+                        成就一生的辉煌，炮烙一生的记忆。</p>
                 </div>
 
                 <div class="ui attached segment">
@@ -65,7 +67,6 @@
                     <div class="ui teal basic left pointing label m-margin-tb-tiny">Java</div>
                     <div class="ui teal basic left pointing label m-margin-tb-tiny">Android</div>
                     <div class="ui teal basic left pointing label m-margin-tb-tiny">Spring</div>
-                    <div class="ui teal basic left pointing label m-margin-tb-tiny">React Native</div>
                     <div class="ui teal basic left pointing label m-margin-tb-tiny">MySQL</div>
                     <div class="ui teal basic left pointing label m-margin-tb-tiny">...</div>
 
@@ -73,13 +74,13 @@
 
 
                 <div class="ui bottom attached segment">
-                    <a href="@" class="ui circular icon button"><i class="github icon"></i></a>
-                    <a href="@" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
-                    <a href="@" class="ui qq circular icon button" data-content="1014222094" data-position="bottom center"><i class="qq icon"></i></a>
+                    <a  class="ui github circular icon button" data-content="http://sourfeng.github.io/" data-position="bottom center"><i class="github icon"></i></a>
+                    <a  class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                    <a  class="ui qq circular icon button" data-content="1014222094" data-position="bottom center"><i class="qq icon"></i></a>
                 </div>
 
                 <div class="ui wechat-qr flowing popup transition hidden">
-                    <img src="../static/images/wechat.png" alt="" class="ui rounded bordered image"
+                    <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" alt="" class="ui rounded bordered image"
                          style="width: 120px">
                 </div>
 
@@ -136,6 +137,8 @@
     });
 
     $('.qq').popup();
+
+    $('.github').popup();
 
     $('.wechat').popup({
         popup: $('.wechat-qr.popup'),

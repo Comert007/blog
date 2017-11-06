@@ -473,32 +473,37 @@ h5,h6{font-size:1em;}
             </div>
 
             <!--赞赏-->
-            <div class="ui center aligned basic segment">
-                <button id="payButton" class="ui orange basic circular button">赞赏</button>
-            </div>
 
-            <div class="ui payQR flowing popup transition hidden">
-                <div class="ui orange basic label">
-                    <div class="ui images" style="font-size: inherit!important;">
-                        <div class="image">
-                            <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" alt=""
-                                 class="ui rounded bordered image"
-                                 style="width: 120px">
-                            <div>支付宝</div>
-                        </div>
-                        <div class="image">
-                            <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" alt=""
-                                 class="ui rounded bordered image"
-                                 style="width: 120px">
-                            <div>微信</div>
+            <div th:if="${blog.appreciation}">
+                <div class="ui center aligned basic segment">
+                    <button id="payButton" class="ui orange basic circular button">赞赏</button>
+                </div>
+
+                <div class="ui payQR flowing popup transition hidden">
+                    <div class="ui orange basic label">
+                        <div class="ui images" style="font-size: inherit!important;">
+                            <div class="image">
+                                <img src="../static/images/alipay.png" th:src="@{/images/alipay.png}" alt=""
+                                     class="ui rounded bordered image"
+                                     style="width: 120px">
+                                <div>支付宝</div>
+                            </div>
+                            <div class="image">
+                                <img src="../static/images/weipay.png" th:src="@{/images/weipay.png}" alt=""
+                                     class="ui rounded bordered image"
+                                     style="width: 120px">
+                                <div>微信</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+
+
         </div>
 
-        <div class="ui attached positive message">
+        <div class="ui attached positive message" th:if="${blog.shareStatement}">
             <!--博客信息-->
             <div class="ui grid">
                 <div class="eleven wide column">
@@ -507,20 +512,20 @@ h5,h6{font-size:1em;}
                                                                                    target="_blank">（联系作者）</a></li>
                         <li>发表时间：<span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd HH:mm')}">2017-10-2</span>
                         </li>
-                        <li>版权申明：</li>
-                        <li>公众号转载：请在文末添加作者公众号二维码</li>
+                        <!--<li>版权申明：</li>-->
+                        <!--<li>公众号转载：请在文末添加作者公众号二维码</li>-->
                     </ui>
 
                 </div>
-                <div class="five wide column">
-                    <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" alt=""
-                         class="ui right floated rounded bordered image"
-                         style="width: 100px">
-                </div>
+                <!--<div class="five wide column">-->
+                    <!--<img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" alt=""-->
+                         <!--class="ui right floated rounded bordered image"-->
+                         <!--style="width: 100px">-->
+                <!--</div>-->
             </div>
         </div>
 
-        <div class="ui bottom attached segment">
+        <div class="ui bottom attached segment" th:if="${blog.commentabled}">
             <!--留言区域列表-->
             <div id="comment-container" class="ui teal segment">
 
@@ -774,7 +779,7 @@ h5,h6{font-size:1em;}
         position: 'left center'
     });
 
-    var host = "http://127.0.0.1:8080";
+    var host = /*[[#{blog.host}]]*/"http://127.0.0.1:8080";
     var url = /*[[@{/blogs/{id}(id = ${blog.id})}]]*/"";
     var qrcode = new QRCode("qrcode", {
         text: host + url,
