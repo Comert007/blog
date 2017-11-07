@@ -7,13 +7,12 @@ spring:
 #    password: root
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     show-sql: true
-logging:
-  level:
-    root: warn
-    com.readdown: info
-  file: log/blog-pro.log
+#logging:
+#  level:
+#    root: warn
+#    com.readdown: info
 
 server:
   port: 8080

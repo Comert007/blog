@@ -7,10 +7,9 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
-logging:
-  level:
-    root: info
-    com.readdown: debug
-  file: log/blog-dev.log
+#logging:
+#  level:
+#    root: info
+#    com.readdown: debug
