@@ -56,7 +56,7 @@
                     <div class="ui padded vertical segment m-padded-tb-large" th:each="blog :${page.content}">
                         <div class="ui middle aligned mobile reversed stackable grid">
                             <div class="eleven wide column">
-                                <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id =${blog.id})}"
+                                <h3 class="ui header"><a href="#" th:href="@{/blogs/{id}(id =${blog.id})}"
                                                          target="_blank" class="m-black" th:text="${blog.title}">您真正的财富是什么？</a>
                                 </h3>
                                 <p m-text th:text="|${blog.description}......|">
@@ -93,7 +93,7 @@
 
 
                             <div class="five wide column">
-                                <a href="#" th:href="@{/blog/{id}(id =${blog.id})}" target="_blank">
+                                <a href="#" th:href="@{/blogs/{id}(id =${blog.id})}" target="_blank">
                                     <img src="https://images.unsplash.com/photo-1422568374078-27d3842ba676?auto=format&fit=crop&w=800&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
                                          th:src="@{${blog.firstPicture}}"
                                          alt="" class="ui rounded image">
@@ -647,7 +647,7 @@
                         <i class="bookmark icon"></i>最新推荐
                     </div>
                     <div class="ui segment" th:each="blog : ${recommendBlogs}">
-                        <a href="#" th:href="@{/blog/{id}(id =${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}">用户故事（user story）</a>
+                        <a href="#" th:href="@{/blogs/{id}(id =${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}">用户故事（user story）</a>
                     </div>
 
                     <!--/*-->
