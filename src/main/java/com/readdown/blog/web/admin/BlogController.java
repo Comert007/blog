@@ -36,23 +36,28 @@ public class BlogController {
 
     @Autowired
     private BlogService blogService;
+
     @Autowired
     private TypeService typeService;
+
     @Autowired
     private TagService tagService;
 
     @GetMapping("/blogs")
     public String blogs(@PageableDefault(size = 10, sort = {"updateTime"},
-            direction = Sort.Direction.DESC) Pageable pageable, BlogQuery blog, Model model) {
+            direction = Sort.Direction.DESC) Pageable pageable, BlogQuery blog, Model model,HttpSession session) {
         model.addAttribute("types", typeService.listType());
+        model.addAttribute("currentUser",session.getAttribute("user"));
         model.addAttribute("page", blogService.listBlog(pageable, blog));
         return LIST;
     }
 
+
+
     @PostMapping("/blogs/search")
     public String search(@PageableDefault(size = 10, sort = {"updateTime"},
-            direction = Sort.Direction.DESC) Pageable pageable, BlogQuery blog, Model model) {
-
+            direction = Sort.Direction.DESC) Pageable pageable, BlogQuery blog, Model model,HttpSession session) {
+        model.addAttribute("currentUser",session.getAttribute("user"));
         model.addAttribute("page", blogService.listBlog(pageable, blog));
         return "admin/blogs :: blogList";
     }
@@ -81,8 +86,9 @@ public class BlogController {
     }
 
     @GetMapping("/blogs/{id}/delete")
-    public String delete(@PathVariable Long id,RedirectAttributes attributes) {
+    public String delete(@PathVariable Long id,RedirectAttributes attributes,Model model,HttpSession session) {
         blogService.deleteBlog(id);
+        model.addAttribute("currentUser",session.getAttribute("user"));
         attributes.addFlashAttribute("message", "删除成功");
         return REDIRECT_LIST;
 
@@ -91,7 +97,7 @@ public class BlogController {
     //TODO 可以增加后端校验
     //新增和修改
     @PostMapping("/blogs")
-    public String post(Blog blog, RedirectAttributes attributes, HttpSession session) {
+    public String post(Blog blog, RedirectAttributes attributes,Model model, HttpSession session) {
 
         blog.setUser((User) session.getAttribute("user"));
 
@@ -110,6 +116,7 @@ public class BlogController {
         } else {
             attributes.addFlashAttribute("message", "操作成功");
         }
+        model.addAttribute("currentUser",session.getAttribute("user"));
         return REDIRECT_LIST;
     }
 

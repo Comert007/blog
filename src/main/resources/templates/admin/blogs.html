@@ -50,7 +50,7 @@
 
 <!--中间内容-->
 <!--header-->
-<div class="m-container-small m-padded-tb-big m-h-tiny">
+<div class="m-container-small m-padded-tb-big">
     <div class="ui container m-h-tiny">
         <div class="ui secondary segment form">
             <input type="hidden" name="page">
@@ -107,6 +107,7 @@
                     <th>推荐</th>
                     <th>发布</th>
                     <th>更新时间</th>
+                    <th>作者</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -119,18 +120,19 @@
                     <td th:text="${blog.recommend} ? '是': '否'">是</td>
                     <td th:text="${blog.published} ? '是': '否'">是</td>
                     <td th:text="${blog.updateTime}">2017-10-02 10：14：23</td>
+                    <td  class="" th:text="${blog.user.nickname}" th:classappend="${blog.user.id ==currentUser.id }? 'negative'">煜汐</td>
                     <td>
                         <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}"
-                           class="ui mini teal basic button">编辑</a>
+                           class="ui mini  basic button " th:classappend="${blog.user.id==currentUser.id}? 'teal active':'grey  disabled'">编辑</a>
                         <a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}"
-                           class="ui mini red basic button">删除</a>
+                           class="ui mini  basic button " th:classappend="${blog.user.id==currentUser.id}? 'red active':'grey disabled'">删除</a>
                     </td>
                 </tr>
                 </tbody>
 
                 <tfoot>
                 <tr>
-                    <th colspan="7">
+                    <th colspan="8">
                         <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
                             <a onclick="page(this)" th:attr="data-page=${page.number}-1" class="item"
                                th:unless="${page.first}">上一页</a>
