@@ -17,11 +17,14 @@ public class User {
     @GeneratedValue
     private Long id;
     private String nickname;
+    @Column(unique = true)
     private String username;
     private String password;
     private String email;
     private String avatar;
     private Integer type;
+    private String introduction;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date  createTime;
     @Temporal(TemporalType.TIMESTAMP)
@@ -115,6 +118,14 @@ public class User {
         this.blogs = blogs;
     }
 
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -125,8 +136,10 @@ public class User {
                 ", email='" + email + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", type=" + type +
+                ", introduction='" + introduction + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", blogs=" + blogs +
                 '}';
     }
 }

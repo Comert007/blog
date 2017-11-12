@@ -9,4 +9,7 @@ import com.readdown.blog.po.User;
  */
 public interface UserService {
     User checkUser(String name,String password);
+    boolean isExistUser(String username);
+
+    User saveUser(User user);
 }

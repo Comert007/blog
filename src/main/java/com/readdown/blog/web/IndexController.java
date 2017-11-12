@@ -62,4 +62,6 @@ public class IndexController {
         return "_fragments::newblogList";
     }
 
+
+
 }

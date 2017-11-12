@@ -24,13 +24,13 @@
             </div>
 
             <div class="ui middle attached segment">
-                <form class="ui large form" method="post" action="#" th:action="@{/admin/login}">
+                <form class="ui large form" method="post" action="#" th:object="${normalUser}" th:action="@{/users/register}">
 
                     <div class="field m-margin-tb-tiny">
                         昵称：
                         <div class="ui left icon input m-padded-tb-small">
-                            <i class="user icon"></i>
-                            <input type="text" name="nickname" placeholder="昵称">
+                            <i class="mail icon"></i>
+                            <input type="text" name="nickname" th:value="*{nickname}"  placeholder="昵称">
                         </div>
                     </div>
 
@@ -39,7 +39,7 @@
                         用户名：
                         <div class="ui left icon input m-padded-tb-small">
                             <i class="user icon"></i>
-                            <input type="text" name="username" placeholder="用户名">
+                            <input type="text" name="username" th:value="*{username}" placeholder="用户名">
                         </div>
                     </div>
 
@@ -47,14 +47,17 @@
                         密码：
                         <div class="ui left icon input m-padded-tb-small">
                             <i class="lock icon"></i>
-                            <input type="password" name="password" placeholder="密码">
+                            <input type="password" name="password" th:value="*{password}" placeholder="密码">
                         </div>
                     </div>
                     <br>
                     <br>
-                    <button class="ui fluid large black  button">注册</button>
+                    <button class="ui fluid large black  button" type="submit">注册</button>
                     <br>
-                    <button class="ui fluid large gray submit button">登录</button>
+                    <div class="ui center aligned container">
+                        <span style="font-size: small;color: lightgrey">已有账号？</span>
+                    </div>
+                    <a class="ui fluid large gray  button" href="./login.html" th:href="@{/login}">登录</a>
 
                     <br>
                     <div class="ui error mini message"></div>

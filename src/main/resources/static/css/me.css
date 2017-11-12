@@ -53,6 +53,11 @@ body{
     padding-bottom: 5em !important;
 }
 
+.m-padded-tb-more-massive{
+    padding-top: 15em !important;
+    padding-bottom: 15em !important;
+}
+
 .m-padded-lr-reponsive{
     padding-left: 4em !important;
     padding-right: 4em!important;
@@ -117,6 +122,13 @@ body{
     display: inline-block !important;
 }
 
+/*----------gradient-------------*/
+
+.m-radial-gradient{
+    background: radial-gradient(teal, black) !important;
+}
+
+
 /*---------container-------*/
 .m-container{
     max-width: 72em !important;
@@ -154,6 +166,9 @@ body{
     color: #00B5AD !important;
 }
 
+.m-bg-dark-teal{
+    background-color: darkslategrey !important;
+}
 /*------------height-------*/
 .m-h-mini{
     min-height: 300px !important;
@@ -161,6 +176,10 @@ body{
 
 .m-h-tiny{
     min-height: 500px !important;
+}
+
+.m-h-small{
+    min-height: 800px !important;
 }
 
 

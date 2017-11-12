@@ -10,6 +10,8 @@
 <body>
 
 <!--导航-->
+
+
 <nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <div class="ui  inverted secondary stackable menu">
@@ -32,9 +34,11 @@
         <i class="sidebar icon"></i>
     </a>
 </nav>
+
+
 <!--中间内容-->
 <div class="m-container m-padded-tb-big m-h-mini animated fadeIn">
-    <div class="ui container m-h-tiny">
+    <div class="ui container m-h-small">
         <div class="ui stackable grid">
             <!--左边博客列表-->
             <div class="eleven wide column">
@@ -42,7 +46,7 @@
                 <div class="ui top attached segment">
                     <div class="ui middle aligned two column grid">
                         <div class="column">
-                            <h3 class="ui teal header">博客</h3>
+                            <h3 class="ui black header">博客</h3>
                         </div>
                         <div class="right aligned column">
                             共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${page.totalElements}">
@@ -76,7 +80,7 @@
 
                                             <div class="item">
                                                 <i class="calendar icon"></i><span
-                                                    th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2017-10-01</span>
+                                                    th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}">2017-10-01</span>
                                             </div>
                                             <div class="item">
                                                 <i class="eye icon"></i><span th:text="${blog.views}">234</span>
@@ -546,11 +550,11 @@
                         </div>
                     </div>
 
-                    <div class="ui teal segment">
+                    <div class="ui orange segment">
                         <div class="ui fluid vertical menu">
                             <a href="#"  th:href="@{/types/{id}(id =${type.id})}" target="_blank" class="item"  th:each="type :${types}">
                                 <span th:text="${type.name}">学习日志</span>
-                                <div class="ui teal basic left pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
+                                <div class="ui orange basic left pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
                             </a>
 
                             <!--/*-->
@@ -599,8 +603,8 @@
                         </div>
                     </div>
 
-                    <div class="ui teal  segment">
-                        <a href="#" th:href="@{/tags/{id}(id =${tag.id})}"  target="_blank" class="ui teal basic left pointing label m-margin-tb-tiny" th:each="tag :${tags}">
+                    <div class="ui orange  segment">
+                        <a href="#" th:href="@{/tags/{id}(id =${tag.id})}"  target="_blank" class="ui tag orange label m-margin-tb-tiny" th:each="tag :${tags}">
                             <span th:text="${tag.name}">方法论</span>
                             <div class="detail" th:text="${#arrays.length(tag.blogs)}">23</div>
                         </a>

@@ -23,7 +23,7 @@
                <h3 style="color: white">  <i class="opencart icon"></i>&nbsp;&nbsp;&nbsp;登录</h3>
             </div>
 
-            <div class="ui middle attached segment">
+            <div class="ui bottom attached segment">
                 <form class="ui large form" method="post" action="#" th:action="@{/admin/login}">
                     <div class="field m-margin-tb-tiny">
                         用户名：
@@ -41,28 +41,27 @@
                         </div>
                     </div>
                     <br>
-                    <span class="ui right text " style="font-size: small;color: lightgrey">忘记密码？</span>
-                    <br>
-
-
+                    <div class="ui right aligned container">
+                        <span style="font-size: small;color: lightgrey">忘记密码？</span>
+                    </div>
                     <button class="ui fluid large black submit button">登录</button>
                     <br>
-                    <button class="ui fluid large gray  button">注册</button>
+                    <a class="ui fluid large gray  button" href="./register.html" th:href="@{/register}">注册</a>
 
                     <br>
                     <div class="ui error mini message"></div>
                     <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名或密码错误</div>
                 </form>
-
-            </div>
-            <div class="ui bottom center aligned  attached segment">
-                <span style="font-size: small;color: lightgrey">快速登录</span>
-                <div class="m-padded-tb">
-                    <a  class="ui github circular icon button"><i class="black github icon"></i></a>
-                    <a  class="ui qq circular icon button"><i class="blue qq icon"></i></a>
-                    <a  class="ui  weibo circular icon button"><i class="red weibo icon"></i></a>
+                <div class="ui bottom center aligned  container">
+                    <span style="font-size: small;color: lightgrey">快速登录</span>
+                    <div class="m-padded-tb">
+                        <a  class="ui github circular icon button"><i class="black github icon"></i></a>
+                        <a  class="ui qq circular icon button"><i class="blue qq icon"></i></a>
+                        <a  class="ui  weibo circular icon button"><i class="red weibo icon"></i></a>
+                    </div>
                 </div>
             </div>
+
         </div>
 
 

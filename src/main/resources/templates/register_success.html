@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= device-width,initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body onload="time()">
+
+
+
+<div class="ui center aligned container m-padded-tb-more-massive">
+
+    <img src="../static/images/success.png" alt="">
+    <h2>注册成功</h2>
+    <h3>恭喜注册成功，页面将3s后自动跳转到登录界面。  若页面未进行跳转，请点击    <a href="./login.html" th:href="@{/login}">这里</a></h3>
+    <h3>等待时间：</h3>
+    <h3 id="time" class="second" style="color: mediumvioletred">3</h3>
+</div>
+
+<script type="text/javascript" th:inline="javascript">
+    var s;
+    function time(){
+        s = window.setInterval("a()",1000);//每隔一秒自动调用a()
+    }
+
+
+    function a(){
+        var objTime = document.getElementById("time");//获得time的对象
+        var time = objTime.innerText;//获得time的值
+        time = time-1;
+        objTime.innerText = time;//把新time赋给objTime里面
+        if(time == 0){
+            window.location=/*[[@{/login}]]*/"./login.html";//3s过后跳转到哪里去
+            window.clear(s);//清空s，防止再次调用a()。即防止time减为负数
+        }
+    }
+</script>
+
+</body>
+</html>
