@@ -15,7 +15,7 @@ import java.util.Date;
  * @Time 19:25
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService{
 
     @Autowired
     private UserRepository userRepository;
@@ -60,4 +60,9 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+//    @Override
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//       User user= userRepository.findByUsername(username);
+//        return user;
+//    }
 }

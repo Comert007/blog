@@ -65,7 +65,7 @@ public class UserController {
         if (user != null) {
             user.setPassword(null);
             session.setAttribute("normalUser", user);
-            return "index";
+            return "redirect:/";
         } else {
             attributes.addFlashAttribute("message", "用户名或密码错误");
             return "redirect:/login";
@@ -76,7 +76,7 @@ public class UserController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("normalUser");
-        return "redirect:/admin";
+        return "redirect:/";
     }
 
 }

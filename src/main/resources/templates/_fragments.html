@@ -30,6 +30,22 @@
             <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5}? 'active'"><i
                     class="mini info icon"></i>关于我</a>
 
+            <div th:if="${session.normalUser!=null}" class="right m-item m-mobile-hide  menu">
+                <div class="ui  dropdown item">
+                    <div class="text">
+                        <img src="https://picsum.photos/100/100?image=1000" th:src="@{${session.normalUser.avatar}}" alt=""
+                             class="ui avatar image">
+                        <span th:text="${session.normalUser.nickname}">feng</span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" class="item">我的主页</a>
+                        <a href="#" class="item">设置</a>
+                        <a href="#" th:href="@{/logout}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="right m-item item m-mobile-hide">
 
                 <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
@@ -53,7 +69,7 @@
 
         <h2 class="ui inverted header animated pulse infinite m-text">and you? </h2>
 
-        <div class="horizontal container">
+        <div class="horizontal container" th:if="${session.normalUser==null}">
             <a href="./login.html" th:href="@{/login}" class="ui inverted basic button" >Login</a>
         </div>
 

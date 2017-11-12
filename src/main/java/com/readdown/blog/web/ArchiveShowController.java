@@ -17,7 +17,7 @@ public class ArchiveShowController {
     @Autowired
     private BlogService blogService;
 
-    @GetMapping("archives")
+    @GetMapping("/archives")
     public String archives(Model model){
 
         model.addAttribute("archiveMap",blogService.archiveBlog());

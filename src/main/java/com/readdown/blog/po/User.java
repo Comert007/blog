@@ -1,7 +1,9 @@
 package com.readdown.blog.po;
 
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -61,6 +63,9 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+
+
+
 
     public String getPassword() {
         return password;
@@ -125,6 +130,35 @@ public class User {
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
     }
+
+//
+//    @Override
+//    public boolean isAccountNonExpired() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isAccountNonLocked() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isCredentialsNonExpired() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isEnabled() {
+//        return true;
+//    }
+//
+//
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        List<GrantedAuthority> authorities = new ArrayList<>();
+//        List<User>
+//        return null;
+//    }
 
     @Override
     public String toString() {

@@ -34,8 +34,8 @@
 </nav>
 <!--中间内容-->
 <!--header-->
-<div class="m-container m-padded-tb-big m-h-small">
-    <div class="ui container">
+<div class="m-container m-padded-tb-big ">
+    <div class="ui container m-h-small ">
         <div class="ui stackable grid">
             <div class="eleven wide column">
                 <div class="ui segment">
@@ -135,7 +135,9 @@
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide')
     });
-
+    $('.ui.dropdown').dropdown({
+        on: 'hover',
+    });
     $('.qq').popup();
 
     $('.github').popup();
