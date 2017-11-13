@@ -35,6 +35,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Blog> blogs = new ArrayList<>();
 
+    @OneToOne(mappedBy ="user")
+    private OAuthUser oAuthUser;
 
 
     public User() {
