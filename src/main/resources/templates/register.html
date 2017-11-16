@@ -19,7 +19,7 @@
     <div class="ui container m-container-small m-padded-tb-large" style="max-width: 25em!important;">
 
         <div class="ui  segments">
-            <div class="ui inverted center aligned top segment m-padded-tb-large">
+            <div class="ui inverted center aligned top segment m-padded-tb-large"  style="background: darkslategray">
                <h3 style="color: white">  <i class="opencart icon"></i>&nbsp;&nbsp;&nbsp;注册</h3>
             </div>
 
@@ -52,12 +52,12 @@
                     </div>
                     <br>
                     <br>
-                    <button class="ui fluid large black  button" type="submit">注册</button>
+                    <button class="ui fluid large black  button" type="submit" style="background: darkslategray" >注册</button>
                     <br>
                     <div class="ui center aligned container">
                         <span style="font-size: small;color: lightgrey">已有账号？</span>
                     </div>
-                    <a class="ui fluid large gray  button" href="./login.html" th:href="@{/login}">登录</a>
+                    <a class="ui fluid large gray  button" href="./login.html"  th:href="@{/users/login}">登录</a>
 
                     <br>
                     <div class="ui error mini message"></div>

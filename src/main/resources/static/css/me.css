@@ -166,6 +166,10 @@ body{
     color: #00B5AD !important;
 }
 
+.m-dark-teal{
+    color: darkslategrey !important;
+}
+
 .m-bg-dark-teal{
     background-color: darkslategrey !important;
 }

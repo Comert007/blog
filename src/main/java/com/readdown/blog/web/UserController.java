@@ -27,12 +27,12 @@ public class UserController {
 
 
 
-    @GetMapping("/login")
+    @GetMapping("/users/login")
     public String login(){
         return "login";
     }
 
-    @GetMapping("/register")
+    @GetMapping("/users/register")
     public String register(Model model){
         model.addAttribute("normalUser",new User());
         return "register";
@@ -51,7 +51,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/users/registerSuccess")
+    @GetMapping("/users/register/success")
     public String registerSuccess(){
         return "register_success";
     }
@@ -73,7 +73,7 @@ public class UserController {
     }
 
 
-    @GetMapping("/logout")
+    @GetMapping("/users/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("normalUser");
         return "redirect:/";

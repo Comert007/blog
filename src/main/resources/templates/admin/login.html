@@ -3,7 +3,7 @@
 <head th:replace="admin/_fragments::head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewport" content="width= device-width,initial-scale=1.0">
-    <title>后台登录</title>
+    <title>管理登录</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="../../static/css/me.css">
 </head>
@@ -16,40 +16,77 @@
 <br>
 <br>
 <div>
-    <div class="ui container m-container-small m-padded-tb-large" style="max-width: 30em!important;">
-        <div class="ui middle aligned center aligned grid">
-            <div class="column">
-                <h2 class="ui teal image header">
-                    <!--<img src="assets/images/logo.png" class="image">-->
-                    <div class="content">
-                        管理后台登录
-                    </div>
-                </h2>
+    <div class="ui container m-container-small m-padded-tb-large" style="max-width: 25em!important;">
+
+        <div class="ui  segments">
+            <div class="ui inverted  center aligned top segment m-padded-tb-large" style="background: darkslategray">
+                <h3 style="color: white">  <i class="opencart icon"></i>&nbsp;&nbsp;&nbsp;管理登录</h3>
+            </div>
+
+            <div class="ui bottom attached segment">
                 <form class="ui large form" method="post" action="#" th:action="@{/admin/login}">
-                    <div class="ui segment">
-                        <div class="field">
-                            <div class="ui left icon input">
-                                <i class="user icon"></i>
-                                <input type="text" name="username" placeholder="用户名">
-                            </div>
+                    <div class="field m-margin-tb-tiny">
+                        用户名：
+                        <div class="ui left icon input m-padded-tb-small">
+                            <i class="user icon"></i>
+                            <input type="text" name="username" placeholder="用户名">
                         </div>
-                        <div class="field">
-                            <div class="ui left icon input">
-                                <i class="lock icon"></i>
-                                <input type="password" name="password" placeholder="密码">
-                            </div>
-                        </div>
-                        <button class="ui fluid large teal submit button">登录</button>
                     </div>
+
+                    <div class="field m-margin-tb-tiny">
+                        密码：
+                        <div class="ui left icon input m-padded-tb-small">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="密码">
+                        </div>
+                    </div>
+                    <br>
+
+                    <button class="ui fluid large black submit button"  style="background: darkslategray">登录</button>
+                    <br>
 
                     <div class="ui error mini message"></div>
-
                     <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名或密码错误</div>
-
                 </form>
 
             </div>
+
         </div>
+
+
+        <!--<div class="ui middle aligned center aligned grid">-->
+            <!--<div class="column">-->
+                <!--<h2 class="ui teal image header">-->
+                    <!--&lt;!&ndash;<img src="assets/images/logo.png" class="image">&ndash;&gt;-->
+                    <!--<div class="content">-->
+                        <!--管理后台登录-->
+                    <!--</div>-->
+                <!--</h2>-->
+                <!--<form class="ui large form" method="post" action="#" th:action="@{/admin/login}">-->
+                    <!--<div class="ui segment">-->
+                        <!--<div class="field">-->
+                            <!--<div class="ui left icon input">-->
+                                <!--<i class="user icon"></i>-->
+                                <!--<input type="text" name="username" placeholder="用户名">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="field">-->
+                            <!--<div class="ui left icon input">-->
+                                <!--<i class="lock icon"></i>-->
+                                <!--<input type="password" name="password" placeholder="密码">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<button class="ui fluid large teal submit button">登录</button>-->
+                    <!--</div>-->
+
+                    <!--<div class="ui error mini message"></div>-->
+
+                    <!--<div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名或密码错误</div>-->
+
+                <!--</form>-->
+
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </div>
 

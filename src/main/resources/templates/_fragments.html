@@ -15,7 +15,7 @@
 
 <!--导航-->
 <nav th:fragment="menu(n)"
-     class="ui inverted vertical masthead center aligned attached segment m-padded-tb-tiny m-shadow-small " th:classappend="${n==1} ? 'm-radial-gradient':'m-bg-dark-teal'">
+     class="ui inverted vertical masthead center aligned attached segment m-padded-tb-tiny m-shadow-small " th:classappend="${n==1 && blog==null} ? 'm-radial-gradient':'m-bg-dark-teal'">
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui white header item"><a href="#" th:href="@{/}"><i class="opencart icon"></i></a></h2>
@@ -39,9 +39,7 @@
                     </div>
                     <i class="dropdown icon"></i>
                     <div class="menu">
-                        <a href="#" class="item">我的主页</a>
-                        <a href="#" class="item">设置</a>
-                        <a href="#" th:href="@{/logout}" class="item">注销</a>
+                        <a href="#" th:href="@{/users/logout}" class="item">注销</a>
                     </div>
                 </div>
             </div>
@@ -62,7 +60,7 @@
         <i class="sidebar icon"></i>
     </a>
 
-    <div class="ui container center-display m-padded-tb-more-massive" th:if="${n==1}">
+    <div class="ui container center-display m-padded-tb-more-massive" th:if="${n==1 && blog==null}">
         <h1 class="ui inverted header animated pulse m-text">
             I am reading more
         </h1>
@@ -70,7 +68,7 @@
         <h2 class="ui inverted header animated pulse infinite m-text">and you? </h2>
 
         <div class="horizontal container" th:if="${session.normalUser==null}">
-            <a href="./login.html" th:href="@{/login}" class="ui inverted basic button" >Login</a>
+            <a href="./login.html" th:href="@{/users/login}" class="ui inverted basic button" >Login</a>
         </div>
 
     </div>
@@ -121,7 +119,7 @@
             <!--</div>-->
         <!--</div>-->
         <!--<div class="ui inverted section divider"></div>-->
-        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright©2016-2017 ReadDown  by Feng</p>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright©2016-2017 ReadDown by Feng</p>
     </div>
 </footer>
 
