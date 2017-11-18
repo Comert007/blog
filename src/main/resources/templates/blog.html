@@ -878,7 +878,7 @@ h5,h6{font-size:1em;}
 
     function reply(obj) {
         var commenId = $(obj).data('commentid');
-        var commentnickname = $(obj).data('commentnickname')
+        var commentnickname = $(obj).data('commentnickname');
         $("[name = 'content']").attr("placeholder", "@" + commentnickname).focus();
         $("[name = 'parentComment.id']").val(commenId);
         $(window).scrollTo($('#comment-form'), 500);
