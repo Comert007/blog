@@ -35,7 +35,11 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Comment saveCommment(Comment comment) {
         Long parentCommentId = comment.getParentComment().getId();
-        if (parentCommentId != -1){
+        if (parentCommentId ==null){
+            parentCommentId = -1l;
+        }
+
+        if (-1 != parentCommentId ){
             comment.setParentComment(commentRepository.findOne(parentCommentId));
         }else {
             comment.setParentComment(null);
