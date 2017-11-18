@@ -1,5 +1,6 @@
 package com.readdown.blog.web;
 
+import com.readdown.blog.po.Blog;
 import com.readdown.blog.po.Comment;
 import com.readdown.blog.po.User;
 import com.readdown.blog.service.BlogService;
@@ -41,11 +42,15 @@ public class CommentController {
     @PostMapping("/comments")
     public String post(Comment comment, HttpSession session){
         Long blogId = comment.getBlog().getId();
-        comment.setBlog(blogService.getBlog(blogId));
+        Blog blog = blogService.getBlog(blogId);
+        comment.setBlog(blog);
         User user = (User) session.getAttribute("user");
-        if (user!=null){
-            comment.setAvatar(user.getAvatar());
-            comment.setAdminComment(true);
+        User u = (User) session.getAttribute("normalUser");
+        if (u!=null ){
+            comment.setAvatar(u.getAvatar());
+            if ( u.getUsername().equals(blog.getUser().getUsername())){
+                comment.setAdminComment(true);
+            }
         }else {
             comment.setAvatar(avatar);
         }

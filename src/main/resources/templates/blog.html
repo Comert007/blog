@@ -533,14 +533,14 @@ h5,h6{font-size:1em;}
                     <div class="ui threaded comments" style="max-width: 100%">
                         <h3 class="ui dividing header">评论</h3>
                         <div class="comment" th:each="comment : ${comments}">
-                            <a class="avatar">
+                            <a class="ui avatar image">
                                 <img src="https://images.unsplash.com/7/sunset-hair.jpg?auto=format&fit=crop&w=800&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
                                      th:src="@{${comment.avatar}}">
                             </a>
                             <div class="content">
                                 <a class="author" >
                                    <span th:text="${comment.nickname}"> Matt</span>
-                                    <div class="ui mini basic teal left pointing label" th:if="${comment.adminComment}">博主</div>
+                                    <div class="ui mini basic teal left pointing label" th:if="${comment.adminComment}">作者</div>
                                 </a>
                                 <div class="metadata">
                                     <span class="date"
@@ -556,14 +556,14 @@ h5,h6{font-size:1em;}
 
                             <div class="comments" th:if="${#arrays.length(comment.replyComments)}>0">
                                 <div class="comment" th:each="reply : ${comment.replyComments}">
-                                    <a class="avatar">
+                                    <a class="ui avatar image">
                                         <img src="https://images.unsplash.com/7/sunset-hair.jpg?auto=format&fit=crop&w=800&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"
                                              th:src="@{${reply.avatar}}">
                                     </a>
                                     <div class="content">
                                         <a class="author">
                                             <span th:text="${reply.nickname}">Matt</span>
-                                            <div class="ui mini basic teal left pointing label" th:if="${reply.adminComment}">博主</div>
+                                            <div class="ui mini basic teal left pointing label" th:if="${reply.adminComment}">作者</div>
                                             <span th:text="|@ ${reply.parentComment.nickname}|" class="m-teal">@ Anne</span>
                                         </a>
                                         <div class="metadata">
@@ -652,14 +652,14 @@ h5,h6{font-size:1em;}
                     <div class="field m-mobile-wide m-margin-bottom-small">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
-                            <input type="text" name="nickname" placeholder="昵称" th:value="${session.user }!=null ? ${session.user.nickname}">
+                            <input type="text" name="nickname" placeholder="昵称" th:value="${session.normalUser }!=null ? ${session.normalUser.nickname}">
                         </div>
                     </div>
 
                     <div class="field m-mobile-wide m-margin-bottom-small">
                         <div class="ui left icon input">
                             <i class="mail icon"></i>
-                            <input type="text" name="email" placeholder="邮箱" th:value="${session.user }!=null ? ${session.user.email}">
+                            <input type="text" name="email" placeholder="邮箱" th:value="${session.normalUser }!=null ? ${session.normalUser.email}">
                         </div>
                     </div>
 

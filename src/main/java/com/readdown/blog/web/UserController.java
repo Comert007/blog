@@ -54,7 +54,7 @@ public class UserController {
         if (userService.isExistUser(user.getUsername())){
             attributes.addFlashAttribute("message", "用户名已存在");
             model.addAttribute("normalUser",user);
-            return "redirect:/register";
+            return "redirect:/users/register";
         }else {
             u = userService.saveUser(user);
             return "register_success";
@@ -78,7 +78,7 @@ public class UserController {
             return "redirect:/";
         } else {
             attributes.addFlashAttribute("message", "用户名或密码错误");
-            return "redirect:/login";
+            return "redirect:/users/login";
         }
     }
 
