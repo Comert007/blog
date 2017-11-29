@@ -9,18 +9,6 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
-#logging:
-#  level:
-#    root: warn
-#    com.readdown: info
-security:
-    oauth2:
-        client:
-            clientId: ab7927c9083f700af80d
-            clientSecret: f4201ea3907e61f90588bb5b6c1f39e8729f8ee0
-            accessTokenUri: https://github.com/login/oauth/access_token
-            userAuthorizationUri: https://github.com/login/oauth/authorize
-            clientAuthenticationScheme: form
 server:
   port: 8080
 
